@@ -8,7 +8,6 @@
       <router-link v-if="$store.state.isLoggedIn" to="/movies" class="navbar-brand">
         <img style="max-height:25px" src="../assets/logo.svg" />Filmsapp
       </router-link>
-      
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav ms-auto mb-2 mb-md-0">
           <li v-if="!$store.state.isLoggedIn" class="nav-item">
