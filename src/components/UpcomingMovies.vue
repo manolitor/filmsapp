@@ -3,9 +3,11 @@
 <h2>Próximos estrenos</h2>
 <table class="table">
   <tbody>
-      <td v-for="result in results" :key="result.id">
-        <img class="poster" v-if="result.poster_path === null" src="../assets/posterNotFound.jpg"/>
-        <img class="poster" v-if="result.poster_path !== null" :src="`https://image.tmdb.org/t/p/w200${result.poster_path}`"/>
+      <td v-for="movie in movies" :key="movie.id">
+        <router-link :to="{ name: 'movie', params: { id: movie.id } }">
+        <img class="poster" v-if="movie.poster_path === null" src="../assets/posterNotFound.jpg"/>
+        <img class="poster" v-if="movie.poster_path !== null" :src="`https://image.tmdb.org/t/p/w200${movie.poster_path}`"/>
+        </router-link>
       </td>
   </tbody>
 </table>
@@ -20,12 +22,12 @@ export default {
     name: 'upcoming-movies',
     data: function(){
         return {
-            results: null
+            movies: ""
         }
     },
     mounted () {
     movieService.getUpcomingMovies()
-    .then(response => (this.results = response.data.results))
+    .then(response => (this.movies = response.data.results))
   }
 }
 </script>

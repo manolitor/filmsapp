@@ -23,7 +23,7 @@ export default {
     name: 'trending-movies',
     data: function(){
         return {
-            movies: null
+            movies: ""
         }
     },
     mounted () {

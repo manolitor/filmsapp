@@ -15,10 +15,6 @@ app.use(cors()) // Enable Cross Origin Requests, since Vue.JS is on a different 
 
 registerRoutes(app)
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
