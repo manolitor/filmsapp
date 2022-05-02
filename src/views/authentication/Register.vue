@@ -1,22 +1,18 @@
 <template>
     <div>
-        <h1>Register</h1>
+        <h1>Registro</h1>
         <form class="custom-form" v-on:submit.prevent="onSubmit">
             <div class="form-group">
                 <label for="username">Nombre de usuario:</label>
-                <input v-model="username" type="text" class="form-control" id="username" placeholder="Username" />
+                <input v-model="username" type="text" class="form-control" id="username" placeholder="Usuario" />
             </div>
             <div class="form-group">
-                <label for="username">Nombre:</label>
-                <input v-model="first" type="text" class="form-control" id="first" placeholder="first" />
+                <label for="email">Email:</label>
+                <input v-model="email" type="email" class="form-control" id="email" placeholder="Email" />
             </div>
             <div class="form-group">
-                <label for="username">Apellido:</label>
-                <input v-model="last" type="text" class="form-control" id="last" placeholder="last" />
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input v-model="password" type="password" class="form-control" id="password" placeholder="Password" />
+                <label for="password">Contraseña</label>
+                <input v-model="password" type="password" class="form-control" id="password" placeholder="Contraseña" />
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-secondary">Registrarse</button>
@@ -33,18 +29,16 @@
         data: function() {
             return {
                 username: '',
+                email: '',
                 password: '',
-                first: '',
-                last: ''
             }
         },
         methods: {
             onSubmit: async function() {
                 const user = {
                     username: this.username,
+                    email: this.email,
                     password: this.password,
-                    first: this.first,
-                    last: this.last
                 }
                 await auth.registerUser(user)
                 this.$router.push({ name: 'home' })

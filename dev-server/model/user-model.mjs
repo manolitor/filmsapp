@@ -4,8 +4,7 @@ import bcrypt from 'bcrypt'
 
 const userSchema = new mongoose.Schema({
     username: { type: String, unique: true },
-    first: { type: String },
-    last: { type: String },
+    email: { type: String, unique: true },
     password: { type: String },
 })
 userSchema.set('timestamps', true)
@@ -23,8 +22,6 @@ userSchema.statics.passwordMatches = function(password, hash) {
 
 userSchema.pre('save', function(next){
     this.username = this.username.toLowerCase()
-    this.first = this.first.toLowerCase()
-    this.last = this.last.toLowerCase()
     const unsafePassword = this.password
     bcrypt.hash(unsafePassword, 10, (err, hash) => {
         this.password = hash;        
