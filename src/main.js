@@ -13,6 +13,7 @@ import { store } from './store'
 import * as auth from './services/AuthService'
 import SimilarMoviesVue from './components/SimilarMovies.vue'
 import CastMovies from './components/CastMovies.vue'
+import SearchMovies from './components/SearchMovies.vue'
 
 const routes = [
     { path: '/', name: 'home', component: Home, 
@@ -29,7 +30,8 @@ const routes = [
     { path: '/movies', name: 'movies', component: AllMovies},
     { path: '/movie/:id', name: 'movie', component: Movie },
     { path: '/similar/:id', name: 'similars', component: SimilarMoviesVue },
-    { path:'/movies/:id/:name', name: 'castMovies', component: CastMovies}
+    { path:'/movies/:id/:name', name: 'castMovies', component: CastMovies},
+    { path: '/movies/:query', name: 'SearchMovies', component: SearchMovies }
   ]
 
 const router = createRouter({

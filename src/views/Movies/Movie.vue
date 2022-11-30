@@ -1,8 +1,8 @@
 <template>
 
-
+<div>
 <MovieDetails/>
-
+</div>
 
 <div>
 <Cast/>

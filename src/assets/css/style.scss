@@ -111,12 +111,18 @@ form.custom-form {
 }
 
 .movieBG {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 650px;
-    padding: 2rem 1rem;
     background-repeat: no-repeat;
-    background-position: center 20%;
     background-size: cover;
+}
+
+.dropdown-menu {
+    background-color: #373F46;
+    text-transform: uppercase;
+}
+
+.dropdown-item {
+    color: #FFF;
+    &:hover {
+        background-color: transparent;
+    }
 }
